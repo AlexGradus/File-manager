@@ -6,7 +6,7 @@ export default async function readFile(filePath, currentDirectory) {
     const newPath = path.resolve(currentDirectory, filePath);
     const data = await fs.promises.readFile(newPath, "utf8");
     console.log(data);
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.error("Operation failed:", error.message);
   }
 }

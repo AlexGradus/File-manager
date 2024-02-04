@@ -18,7 +18,9 @@ export default async function decompressFile(
 
     const sourceStats = await fs.promises.stat(sourceFile);
     if (!sourceStats.isFile()) {
-      throw new Error("Invalid input. Only files can be decompressed.");
+      console.error("Invalid input. Only files can be decompressed.");
+      return;
+      
     }
 
     const sourceStream = fs.createReadStream(sourceFile);
@@ -32,6 +34,6 @@ export default async function decompressFile(
       `File '${sourceFileName}' decompressed to '${destinationFile}'.`
     );
   } catch (error) {
-    console.log(`Error decompressing file: ${error.message}`);
+    console.log(`Invalid input: ${error.message}`);
   }
 }

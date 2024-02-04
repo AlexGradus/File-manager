@@ -12,7 +12,8 @@ export default async function compressFile(sourcePath, destinationDirectory,curr
   
       const sourceStats = await fs.promises.stat(sourceFile);
       if (!sourceStats.isFile()) {
-        throw new Error("Invalid input. Only files can be compressed.");
+        console.error("Invalid input. Only files can be compressed.");
+        return;
       }
   
       const sourceStream = fs.createReadStream(sourceFile);
@@ -24,7 +25,7 @@ export default async function compressFile(sourcePath, destinationDirectory,curr
   
       console.log(`File '${sourceFileName}' compressed to '${destinationFile}'.`);
     } catch (error) {
-      console.log(`Error compressing file: ${error.message}`);
+      console.log(`Invalid input: ${error.message}`);
     }
   }
   

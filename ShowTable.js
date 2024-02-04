@@ -15,7 +15,7 @@ export default async function showTable(currentDirectory) {
           Type: type,
         });
       } catch (error) {
-        console.log("error");
+        console.error("Operation failed:", error.message);
       }
     }
   

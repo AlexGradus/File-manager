@@ -6,6 +6,6 @@ export default async function renameFile(oldName, newName) {
       await fs.promises.rename(oldName, newName);
       console.log(`File is renamed to ${newName}.`);
     } catch (error) {
-      console.log(error);
+      console.error("Operation failed:", error.message);
     }
   }

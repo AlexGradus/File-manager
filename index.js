@@ -47,7 +47,7 @@ async function navDirectory(dirPath) {
     currentDirectory = newPath;
     showCurrentDirectory();
   } catch (error) {
-    throw new Error("Invalid input. The specified directory does not exist.");
+    console.error("Operation failed:", error.message);
   }
 }
 
@@ -77,7 +77,7 @@ async function copyFile(sourceDirectory, finalDirectory) {
 
     console.log("File is copied!");
   } catch (error) {
-    console.log(error);
+    console.error("Operation failed:", error.message);
   }
 }
 
@@ -96,7 +96,7 @@ async function moveFile(sourceDirectory, finalDirectory) {
     await fs.promises.unlink(sourceFilePath);
     console.log("File is copied!");
   } catch (error) {
-    console.log(error);
+    console.error("Operation failed:", error.message);
   }
 }
 
@@ -106,7 +106,7 @@ async function deleteFile(filePath) {
     await fs.promises.unlink(deletePath);
     console.log(` ${deletePath} is deleted`);
   } catch (error) {
-    console.log(error);
+    console.error("Operation failed:", error.message);
   }
 }
 
@@ -160,7 +160,7 @@ async function calculateFileHash(filePath) {
       console.log(error);
     });
   } catch (error) {
-    console.log(error);
+    console.error("Operation failed:", error.message);
   }
 }
 
